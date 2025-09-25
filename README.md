@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -625,7 +624,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
     <div class="slideshow" id="slideshow">
         <div class="slideshow-content">
