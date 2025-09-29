@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-c
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMSN</title>
     <style>
@@ -22,7 +23,7 @@ c
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 2000px;
             width: 100%;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
@@ -821,6 +822,7 @@ c
                 <button class="btn back-btn" onclick="goBackToSelection()">Quay lại</button>
             </div>
         </div>
+    </div>
 
     <div class="notification" id="notification"></div>
 
@@ -862,21 +864,13 @@ c
             '11.jpg', '12.jpg', '13.jpg', '14.jpg', "15.jpg", "16.jpg", "17.jpg", '18.jpg', '19.jpg', '20.jpg',
             '21.jpg', "22.jpg", "23.jpg", "24.jpg", '25.jpg', '26.jpg', '27.jpg', '28.jpg', "29.jpg", "30.jpg",
             "31.jpg", '32.jpg', '33.jpg', '34.jpg', '35.jpg', "36.jpg", "37.jpg", "38.jpg", '39.jpg', '40.jpg', 
-            '41.jpg', '42.jpg', '43.jpg', '44.jpg', '45.jpg', '46.jpg', '47.jpg', '48.jpg', '49.jpg', '50.jpg',
-            '51.jpg', '52.jpg', '53.jpg', '54.jpg', '55.jpg', '56.jpg', '57.jpg'
         ];
 
         //video
         const localVideos = [
-    
-            "v1.mp4",
-            "v2.mp4",
-            "v3.mp4",
-            "v4.mp4",
-            "v5.mp4",
-            "v6.mp4",
-            "v7.mp4"
-            
+            "video1.mp4",
+            "video2.mp4",
+            "video3.mp4"
         ]; 
 
         // file nhạc
