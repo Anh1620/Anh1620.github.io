@@ -17,7 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
             overflow-x: hidden;
         }
 
@@ -598,7 +598,7 @@
             box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.7);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
             .container {
                 border-radius: 10px;
             }
