@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -82,6 +83,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
             width: 100%;
             max-width: 300px;
+            margin-bottom: 15px;
         }
 
         .submit-btn:hover {
@@ -96,9 +98,118 @@
             display: none;
         }
 
+        /* bàn phím số */
+        .numeric-keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .keypad-btn {
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .keypad-btn:hover {
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .keypad-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .keypad-clear {
+            grid-column: span 2;
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+
+        .keypad-enter {
+            background: linear-gradient(to right, #4ecdc4, #6ae3d9);
+            color: white;
+        }
+
+        /* trang chọn lựa */
+        .selection-screen {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            min-height: 500px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selection-screen h1 {
+            color: #ff4081;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .selection-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .selection-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .selection-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .selection-icon {
+            font-size: 5rem;
+            margin-bottom: 15px;
+            transition: all 0.5s ease;
+        }
+
+        .selection-label {
+            font-size: 1.3rem;
+            color: #ff4081;
+            font-weight: bold;
+        }
+
+        .selection-item.active {
+            transform: scale(1.3);
+            z-index: 10;
+            background: white;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* trang pass */
         .main-content {
             display: none;
             padding: 30px;
+            position: relative;
+            overflow: hidden;
         }
 
         .header {
@@ -234,161 +345,150 @@
             background: linear-gradient(to right, #ff6b6b, #ff8e8e);
         }
 
+        .back-btn {
+            background: linear-gradient(to right, #4ecdc4, #6ae3d9);
+        }
+
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .gallery {
-            margin-top: 30px;
+        /* trang video */
+        .video-screen {
+            display: none;
+            padding: 30px;
             text-align: center;
-            display: none;
         }
 
-        .gallery h2 {
-            color: #ff4081;
-            margin-bottom: 20px;
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .gallery-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            max-height: 300px;
-            overflow-y: auto;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .gallery-image {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-image:hover {
-            transform: scale(1.1);
-        }
-
-        .slideshow {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        .video-player {
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
+            max-width: 700px;
+            height: 400px;
+            background: #000;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
             overflow: hidden;
         }
 
-        .slideshow-content {
-            position: relative;
+        .video-player video {
             width: 100%;
             height: 100%;
+            object-fit: cover;
         }
 
-        .close-slideshow {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 1001;
+        .video-placeholder {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
         }
 
-        .close-slideshow:hover {
+        .video-placeholder p {
+            margin-bottom: 15px;
+        }
+
+        .video-controls {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* trang ảnh */
+        .gallery-screen {
+            display: none;
+            padding: 30px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            min-height: 600px;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.3);
         }
 
-        .slideshow img {
+        .gallery-image {
             position: absolute;
+            width: 180px;
             height: 180px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
             object-fit: cover;
-            width: auto;
-            aspect-ratio: 1/1;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, z-index 0.3s;
+            cursor: pointer;
+            right: -200px; /* tọa độ từ bên phải */
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
         }
 
-        @keyframes flyLeft {
-            0% {
-                left: 100%;
-                opacity: 1;
-                transform: rotate(10deg) scale(0.8);
-            }
-            100% {
-                left: -250px;
-                opacity: 1;
-                transform: rotate(-10deg) scale(0.8);
-            }
+        .gallery-image:hover {
+            transform: scale(1.05);
+            z-index: 100;
+            animation-play-state: paused; /* tương tác vs ảnh */
         }
 
-        @keyframes flyLeft2 {
+        /* Keyframes ảnh di chuyển */
+        @keyframes moveLeft {
             0% {
-                left: 100%;
-                opacity: 1;
-                transform: rotate(5deg) scale(0.9);
+                transform: translateX(0) rotate(0deg);
+                right: -200px;
             }
             100% {
-                left: -250px;
-                opacity: 1;
-                transform: rotate(-5deg) scale(0.9);
+                transform: translateX(calc(-100vw - 200px)) rotate(0deg);
+                right: calc(100vw + 200px);
             }
         }
 
-        @keyframes flyLeft3 {
+        @keyframes moveLeftSlow {
             0% {
-                left: 100%;
-                opacity: 1;
-                transform: rotate(0deg) scale(0.85);
+                transform: translateX(0) rotate(0deg);
+                right: -200px;
             }
             100% {
-                left: -250px;
-                opacity: 1;
-                transform: rotate(0deg) scale(0.85);
+                transform: translateX(calc(-100vw - 200px)) rotate(0deg); 
+                right: calc(100vw + 200px);
             }
         }
 
-        @keyframes flyLeft4 {
+        @keyframes moveLeftZigzag {
             0% {
-                left: 100%;
-                opacity: 1;
-                transform: rotate(15deg) scale(0.75);
+                transform: translateX(0) translateY(0) rotate(0deg);
+                right: -200px;
+            }
+            25% {
+                transform: translateX(-25vw) translateY(-50px) rotate(0deg); 
+            }
+            50% {
+                transform: translateX(-50vw) translateY(0) rotate(0deg); 
+            }
+            75% {
+                transform: translateX(-75vw) translateY(50px) rotate(0deg); 
             }
             100% {
-                left: -250px;
-                opacity: 1;
-                transform: rotate(-15deg) scale(0.75);
-            }
-        }
-
-        @keyframes flyLeft5 {
-            0% {
-                left: 100%;
-                opacity: 1;
-                transform: rotate(-5deg) scale(0.95);
-            }
-            100% {
-                left: -250px;
-                opacity: 1;
-                transform: rotate(5deg) scale(0.95);
+                transform: translateX(calc(-100vw - 200px)) translateY(0) rotate(0deg); 
+                right: calc(100vw + 200px);
             }
         }
 
@@ -408,6 +508,52 @@
             transition: left 0.05s linear, top 0.05s linear;
             z-index: 10;
             pointer-events: none;
+        }
+
+        /* hiệu ứng bóng bay */
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            border-radius: 50%;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.8;
+            animation: floatUp 8s ease-in forwards;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 15px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(10deg);
+                opacity: 0;
+            }
         }
 
         @keyframes shake {
@@ -440,7 +586,7 @@
             display: none;
         }
 
-        /* Hiệu ứng kim tuyến */
+        /* hiệu ứng kim tuyến */
         .glitter {
             position: fixed;
             width: 5px;
@@ -451,51 +597,6 @@
             z-index: 999;
             opacity: 0.8;
             box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.7);
-        }
-
-        .balloon::before {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 15px;
-            background: linear-gradient(to bottom, #ff4081, #ff6b6b);
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        @keyframes rise {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
         }
 
         @media (max-width: 768px) {
@@ -521,45 +622,112 @@
                 padding: 30px 20px;
             }
             
-            .gallery-image {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .slideshow img {
-                height: 150px;
-            }
-            
             .books-container {
                 gap: 15px;
+            }
+            
+            .selection-container {
+                gap: 30px;
+            }
+            
+            .selection-icon {
+                font-size: 4rem;
+            }
+            
+            .video-player {
+                height: 250px;
+            }
+            
+            .gallery-image {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .video-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gallery-screen {
+                min-height: 500px;
+            }
+            
+            .gallery-container {
+                height: 400px;
+            }
+            
+            .numeric-keypad {
+                max-width: 280px;
+            }
+            
+            .keypad-btn {
+                padding: 12px;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- màn hình nhập mật khẩu -->
         <div class="password-screen" id="passwordScreen">
             <h1>🎂 HAPPY BIRTHDAY 🎉</h1>
             <p>Nhập mật khẩu để mở</p>
-            <input type="password" class="password-input" id="passwordInput" placeholder="Nhập mật khẩu">
+            <input type="password" class="password-input" id="passwordInput" placeholder="Nhập mật khẩu" readonly>
             <button class="submit-btn" onclick="checkPassword()">Xác Nhận</button>
             <p class="error-msg" id="errorMsg">Mật khẩu không đúng. Vui lòng thử lại!</p>
+            
+            <!-- bàn phím số -->
+            <div class="numeric-keypad">
+                <button class="keypad-btn" data-value="1">1</button>
+                <button class="keypad-btn" data-value="2">2</button>
+                <button class="keypad-btn" data-value="3">3</button>
+                <button class="keypad-btn" data-value="4">4</button>
+                <button class="keypad-btn" data-value="5">5</button>
+                <button class="keypad-btn" data-value="6">6</button>
+                <button class="keypad-btn" data-value="7">7</button>
+                <button class="keypad-btn" data-value="8">8</button>
+                <button class="keypad-btn" data-value="9">9</button>
+                <button class="keypad-btn keypad-clear" onclick="clearPassword()">Xóa</button>
+                <button class="keypad-btn" data-value="0">0</button>
+            
+            </div>
         </div>
 
+        <!-- màn hình chọn lựa -->
+        <div class="selection-screen" id="selectionScreen">
+            <h1>Chọn một mục để khám phá</h1>
+            <div class="selection-container">
+                <div class="selection-item" id="videoSelection" onclick="selectItem('video')">
+                    <div class="selection-icon">📹</div>
+                    <div class="selection-label">Video</div>
+                </div>
+                
+                <div class="selection-item" id="cardSelection" onclick="selectItem('card')">
+                    <div class="selection-icon">💌</div>
+                    <div class="selection-label">Thiệp</div>
+                </div>
+                
+                <div class="selection-item" id="gallerySelection" onclick="selectItem('gallery')">
+                    <div class="selection-icon">📷</div>
+                    <div class="selection-label">Ảnh</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- trang thiệp chúc mừng -->
         <div class="main-content" id="mainContent">
             <div class="header">
                 <h1>HAPPY BIRTHDAY 🎂</h1>
-                <p>Nhấn vào từng cái để mở thiệp</p> 
+                <p>Nhấn vào từng cái để mở </p> 
             </div>
 
-            <!-- thiệp -->
-            <!-- gán tên trên thiệp -->
             <div class="books-container">
                 <div class="book-container">
-                    <div class="book-title"></div>  <!-- gán tên trên thiệp -->
+                    <div class="book-title"></div>
                     <div class="book" id="book1" onclick="openBook(1)">
                         <div class="page page1">
-                            <div>HAPPY BIRTHDAY</div>    <!-- nd hiện trên thiệp -->
+                            <div>HAPPY BIRTHDAY</div>
                             <div style="font-size: 3rem; margin-top: 20px;">🎁</div>
                         </div>
                         <div class="page page2" id="page2-book1">
@@ -569,12 +737,11 @@
                     </div>
                 </div>
 
-                <!-- thiệp 2 -->
                 <div class="book-container">
-                    <div class="book-title"></div>   <!-- gán tên trên thiệp -->
+                    <div class="book-title"></div>
                     <div class="book" id="book2" onclick="openBook(2)">
                         <div class="page page1">
-                            <div>HAPPY BIRTHDAY</div>    <!-- nd hiện trên thiệp -->
+                            <div>HAPPY BIRTHDAY</div>
                             <div style="font-size: 3rem; margin-top: 20px;">💌</div>
                         </div>
                         <div class="page page2" id="page2-book2">
@@ -584,12 +751,11 @@
                     </div>
                 </div>
 
-                <!-- thiệp 3 -->
                 <div class="book-container">
-                    <div class="book-title"></div>  <!-- gán tên trên thiệp -->
+                    <div class="book-title"></div>
                     <div class="book" id="book3" onclick="openBook(3)">
                         <div class="page page1">
-                            <div>HAPPY BIRTHDAY</div>   <!-- nd hiện trên thiệp -->
+                            <div>HAPPY BIRTHDAY</div>
                             <div style="font-size: 3rem; margin-top: 20px;">🎂</div>
                         </div>
                         <div class="page page2" id="page2-book3">
@@ -599,12 +765,11 @@
                     </div>
                 </div>
                 
-                <!-- thiệp 4 -->
                 <div class="book-container">
-                    <div class="book-title"></div>    <!-- gán tên trên thiệp -->
-                    <div class="book" id="book4" onclick="openBook(4)">  <!-- tên thiệp -->
+                    <div class="book-title"></div>
+                    <div class="book" id="book4" onclick="openBook(4)">
                         <div class="page page1">
-                            <div>HAPPY BIRTHDAY</div>     <!-- nd hiện trên thiệp -->
+                            <div>HAPPY BIRTHDAY</div>
                             <div style="font-size: 3rem; margin-top: 20px;">🎉</div>
                         </div>
                         <div class="page page2" id="page2-book4">
@@ -616,19 +781,46 @@
             </div>
 
             <div class="controls">
-                <button class="btn next-btn" id="nextButton" onclick="showSlideshow()">Tiếp theo ➡️</button>
-            </div>
-
-            <div class="gallery" id="imageGallery">
-                    <!-- Ảnh sẽ được thêm tự động -->
-                </div>
+                <button class="btn back-btn" onclick="goBackToSelection()">Quay lại</button>
+                <button class="btn next-btn" id="nextButton" onclick="showCompletionMessage()">Hoàn thành 🎊</button>
             </div>
         </div>
-    
 
-    <div class="slideshow" id="slideshow">
-        <div class="slideshow-content">
-            <button class="close-slideshow" onclick="closeSlideshow()">×</button>
+        <!-- trang video -->
+        <div class="video-screen" id="videoScreen">
+            <div class="header">
+                <h1>Video 🎬</h1>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-player" id="videoPlayer">
+                   
+                </div>
+                <!-- nút đk video -->
+                <div class="video-controls" id="videoControls">
+                    <button class="btn prev-video-btn" style="background: linear-gradient(to right, #4ecdc4, #6ae3d9)">⏮ Video trước</button>
+                    <button class="btn next-video-btn" style="background: linear-gradient(to right, #ff6b6b, #ff8e8e)">Video tiếp theo ⏭</button>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button class="btn back-btn" onclick="goBackToSelection()">Quay lại</button>
+            </div>
+        </div>
+
+        <!-- Trang ảnh -->
+        <div class="gallery-screen" id="galleryScreen">
+            <div class="header">
+                <h1>Ảnh 📸</h1>
+            </div>
+            
+            <div class="gallery-container" id="galleryContainer">
+               
+            </div>
+            
+            <div class="controls">
+                <button class="btn back-btn" onclick="goBackToSelection()">Quay lại</button>
+            </div>
         </div>
     </div>
 
@@ -637,21 +829,19 @@
     <div class="audio-player" id="audioPlayer"></div>
 
     <script>
-
-        
         // PASS
-        const PASSWORD = "a";
+        const PASSWORD = "1";
         
-        //  thông báo khi mở từng thiệp 
+        // thông báo khi mở thiệp 
         const OPEN_MESSAGE_CONFIG = {
             book1: "ANH",
             book2: "DOAN", 
             book3: "QUANG",
             book4: "ANH1628",
-            allOpened: "Đã mở tất cả thiệp📸"
+            allOpened: "Đã mở tất cả thiệp! 🎉"
         };
         
-        //  lời chúc trong từng thiệp 
+        // lời chúc
         const bookMessages = [
             "lời chúc 1",
             
@@ -662,37 +852,53 @@
             "lời chúc 4"
         ];
 
-        //Tên hiển thị cho từng thiệp
+        // tên thiệp
         const bookTitles = [
-            
+           // thêm theo "Thiệp 1",//
+    
         ];
 
-        // tên file ảnh
+        // ảnh
         const localImages = [
-            "1.jpg", "2.jpg", "3.jpg", '4.jpg', '5.jpg', '6.jpg', '7.jpg', "8.jpg", "9.jpg", "10.jpg",'41.jpg', '42.jpg',"23.jpg", "24.jpg",
-            '11.jpg', '12.jpg', '13.jpg', '14.jpg', "15.jpg", "16.jpg", "17.jpg", '18.jpg', '19.jpg', '20.jpg',"43.jpg",'32.jpg', '33.jpg', '34.jpg',
-            '21.jpg', "22.jpg", "23.jpg", "24.jpg", '25.jpg', '26.jpg', '27.jpg', '28.jpg', "29.jpg", "30.jpg","3.jpg", '4.jpg', '5.jpg',
-            "31.jpg", '32.jpg', '33.jpg', '34.jpg', '35.jpg', "36.jpg", "37.jpg", "38.jpg", '39.jpg', '40.jpg', "43.jpg", "44.jpg",'27.jpg', '28.jpg', "29.jpg"
+            "1.jpg", "2.jpg", "3.jpg", '4.jpg', '5.jpg', '6.jpg', '7.jpg', "8.jpg", "9.jpg", "10.jpg",
+            '11.jpg', '12.jpg', '13.jpg', '14.jpg', "15.jpg", "16.jpg", "17.jpg", '18.jpg', '19.jpg', '20.jpg',
+            '21.jpg', "22.jpg", "23.jpg", "24.jpg", '25.jpg', '26.jpg', '27.jpg', '28.jpg', "29.jpg", "30.jpg",
+            "31.jpg", '32.jpg', '33.jpg', '34.jpg', '35.jpg', "36.jpg", "37.jpg", "38.jpg", '39.jpg', '40.jpg', 
+            '41.jpg', '42.jpg', '43.jpg', '44.jpg', '45.jpg', '46.jpg', '47.jpg', '48.jpg', '49.jpg', '50.jpg',
+            '51.jpg', '52.jpg', '53.jpg', '54.jpg', '55.jpg', '56.jpg', '57.jpg'
         ];
+
+        //video
+        const localVideos = [
+    
+            "v1.mp4",
+            "v2.mp4",
+            "v3.mp4",
+            "v4.mp4",
+            "v5.mp4",
+            "v6.mp4",
+            "v7.mp4"
+            
+        ]; 
 
         // file nhạc
         const MUSIC_FILE = "sn.mp3"; 
         
         // Biến toàn cục
-        let slideshowInterval;
-        let activeImages = 0;
-        let uploadedImages = [];
         let glitterInterval;
-        let balloonInterval;
         let effectsActive = false;
-        let lastImagePosition = 0;
         let openedBooks = 0;
+        let selectedItem = null;
+        let selectionTimeout;
+        let currentVideoIndex = 0;
+        let imageInterval;
+        let balloonInterval;
 
         let birthdayAudio = new Audio();
         let isPlaying = false;
-        const DEFAULT_VOLUME = 0.7;
+        const DEFAULT_VOLUME = 0.7;  // chỉnh âm thanh
 
-        // cập nhật tên thiệp khi trang load
+        // cập nhật tên thiệp
         function updateBookTitles() {
             const bookTitleElements = document.querySelectorAll('.book-title');
             bookTitleElements.forEach((element, index) => {
@@ -715,7 +921,7 @@
             }
         }
 
-        // Chuyển đổi tên file thành đường dẫn ảnh
+        // chuyển đổi tên file thành đường dẫn ảnh
         function processLocalImages() {
             const processedImages = [];
             
@@ -729,28 +935,214 @@
             return processedImages;
         }
 
-        // chạy tất cả ảnh
-        uploadedImages = [...processLocalImages()];
+        // chuyển đổi tên file thành đường dẫn video
+        function processLocalVideos() {
+            const processedVideos = [];
+            
+            for (const fileName of localVideos) {
+                processedVideos.push({
+                    src: fileName,
+                    name: fileName.replace(/\.[^/.]+$/, "")
+                });
+            }
+            
+            return processedVideos;
+        }
+
+        // Cập nhật gallery ảnh di chuyển liên tục
+        function updateImageGallery() {
+            const galleryContainer = document.getElementById('galleryContainer');
+            if (!galleryContainer) return;
+            
+            galleryContainer.innerHTML = '';
+            
+            const processedImages = processLocalImages();
+            
+            if (processedImages.length > 0) {
+                // tạo ảnh với hiệu ứng di chuyển liên tục
+                processedImages.forEach((image, index) => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image.src;
+                    imgElement.alt = image.name;
+                    imgElement.className = 'gallery-image';
+                    imgElement.title = image.name;
+                    
+                    
+                    const randomTop = Math.random() * 300; // vị trí 
+                    const randomDelay = Math.random() * 2; // độ trễ 
+                    const randomDuration = 15 + Math.random() * 15; // thời gian di chuyển
+                    const randomZIndex = Math.floor(Math.random() * 6) + 1; // z-index ngẫu nhiên
+                    
+                    // di chuyển ngẫu nhiên
+                    const animationTypes = ['moveLeft', 'moveLeftSlow', 'moveLeftZigzag'];
+                    const randomAnimation = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+                    
+                    imgElement.style.top = randomTop + 'px';
+                    imgElement.style.zIndex = randomZIndex;
+                    imgElement.style.animationDelay = randomDelay + 's';
+                    imgElement.style.animationDuration = randomDuration + 's';
+                    imgElement.style.animationName = randomAnimation;
+                    
+                    imgElement.onerror = function() {
+                        console.error(`Không thể tải ảnh: ${image.src}`);
+                        this.style.display = 'none';
+                    };
+                    
+                    galleryContainer.appendChild(imgElement);
+                });
+            } else {
+                // thông báo khi ko cs ảnh
+                const noImagesMsg = document.createElement('p');
+                noImagesMsg.textContent = "Chưa có ảnh kỷ niệm nào";
+                noImagesMsg.style.color = "#666";
+                noImagesMsg.style.fontSize = "1.2rem";
+                noImagesMsg.style.padding = "50px";
+                galleryContainer.appendChild(noImagesMsg);
+            }
+        }
+
+        // Dừng ảnh
+        function stopImageMovement() {
+            const images = document.querySelectorAll('.gallery-image');
+            images.forEach(img => {
+                img.style.animation = 'none';
+            });
+        }
+
+        // Cập nhật phát video
+        function updateVideoPlayer() {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoControls = document.getElementById('videoControls');
+            
+            if (!videoPlayer) return;
+            
+            videoPlayer.innerHTML = '';
+            
+            const processedVideos = processLocalVideos();
+            
+            // Ẩn/hiện điều khiển dựa trên số lượng video
+            if (videoControls) {
+                videoControls.style.display = processedVideos.length > 1 ? 'flex' : 'none';
+            }
+            
+            if (processedVideos.length > 0) {
+                // video
+                const videoElement = document.createElement('video');
+                videoElement.controls = true;
+                videoElement.autoplay = false;
+                videoElement.style.width = '100%';
+                videoElement.style.height = '100%';
+                videoElement.style.objectFit = 'cover';
+                
+                //nguồn video
+                const sourceElement = document.createElement('source');
+                sourceElement.src = processedVideos[currentVideoIndex].src;
+                sourceElement.type = 'video/mp4';
+                
+                videoElement.appendChild(sourceElement);
+                
+                //  thông báo web không hỗ trợ video
+                const fallbackText = document.createElement('p');
+                fallbackText.textContent = "Trình duyệt không hỗ trợ video.";
+                videoElement.appendChild(fallbackText);
+                
+                // xử lý lỗi tải video
+                videoElement.onerror = function() {
+                    console.error(`Không thể tải video: ${processedVideos[currentVideoIndex].src}`);
+                    showVideoPlaceholder(`Không thể tải video: ${processedVideos[currentVideoIndex].src}`);
+                };
+                
+                videoPlayer.appendChild(videoElement);
+            } else {
+                // thông báo khi ko cs video, 
+                showVideoPlaceholder("Chưa có video nào");
+            }
+        }
+
+        // Hiển thị placeholder khi ko cs video
+        function showVideoPlaceholder(message) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            if (!videoPlayer) return;
+            
+            videoPlayer.innerHTML = '';
+            
+            const placeholder = document.createElement('div');
+            placeholder.className = 'video-placeholder';
+            
+            const icon = document.createElement('div');
+            icon.style.fontSize = '4rem';
+            icon.textContent = '📹';
+            
+            const text = document.createElement('p');
+            text.textContent = message;
+            text.style.fontSize = '1.2rem';
+            text.style.marginTop = '15px';
+            
+            placeholder.appendChild(icon);
+            placeholder.appendChild(text);
+            
+            videoPlayer.appendChild(placeholder);
+        }
+
+        // số vào ô mk
+        function addToPassword(value) {
+            const passwordInput = document.getElementById('passwordInput');
+            passwordInput.value += value;
+        }
+
+        // xóa mật khẩu
+        function clearPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            passwordInput.value = '';
+        }
 
         window.onload = function() {
+            // thêm sự kiện cho bàn phím số
+            document.querySelectorAll('.keypad-btn[data-value]').forEach(button => {
+                button.addEventListener('click', function() {
+                    addToPassword(this.getAttribute('data-value'));
+                });
+            });
+
+            // dấu enter trên trang 1
             document.getElementById("passwordInput").addEventListener("keypress", function(event) {
                 if (event.key === "Enter") {
                     checkPassword();
                 }
             });
             
-            updateImageGallery();
             updateBookTitles(); // cập nhật tên thiệp
-            
-            if (localImages.length > 0) {
-                console.log(`Đã tải ${localImages.length} ảnh từ thư mục`);
-            }
+            updateImageGallery(); // cập nhật gallery ảnh
+            updateVideoPlayer(); // cập nhật trình phát video
 
-            // audio với file nhạc đã chỉ định
+            // gán sự kiện cho nút điều khiển video
+            const prevBtn = document.querySelector('.prev-video-btn');
+            const nextBtn = document.querySelector('.next-video-btn');
+            
+            if (prevBtn) {
+                prevBtn.onclick = function() {
+                    const processedVideos = processLocalVideos();
+                    if (processedVideos.length > 0) {
+                        currentVideoIndex = (currentVideoIndex - 1 + processedVideos.length) % processedVideos.length;
+                        updateVideoPlayer();
+                    }
+                };
+            }
+            
+            if (nextBtn) {
+                nextBtn.onclick = function() {
+                    const processedVideos = processLocalVideos();
+                    if (processedVideos.length > 0) {
+                        currentVideoIndex = (currentVideoIndex + 1) % processedVideos.length;
+                        updateVideoPlayer();
+                    }
+                };
+            }
+            
             setupAudio();
         };
 
-        // Chạy audio
+        // chạy audio
         function setupAudio() {
             if (MUSIC_FILE) {
                 birthdayAudio.src = MUSIC_FILE;
@@ -779,67 +1171,6 @@
             });
         }
 
-        // Gallery ảnh
-        function updateImageGallery() {
-            const galleryContainer = document.getElementById('galleryContainer');
-            if (!galleryContainer) return;
-            
-            galleryContainer.innerHTML = '';
-            
-            if (uploadedImages.length > 0) {
-                document.getElementById('imageGallery').style.display = 'block';
-                
-                uploadedImages.forEach((image, index) => {
-                    const imgElement = document.createElement('img');
-                    imgElement.src = image.src;
-                    imgElement.alt = image.name;
-                    imgElement.className = 'gallery-image';
-                    imgElement.title = image.name;
-                    imgElement.onclick = () => viewImageInSlideshow(index);
-                    
-                    imgElement.onerror = function() {
-                        console.error(`Không thể tải ảnh: ${image.src}`);
-                        this.style.display = 'none';
-                    };
-                    
-                    galleryContainer.appendChild(imgElement);
-                });
-            } else {
-                document.getElementById('imageGallery').style.display = 'none';
-            }
-        }
-
-        // xem ảnh lớn trong slideshow
-        function viewImageInSlideshow(index) {
-            showSlideshow();
-            
-            setTimeout(() => {
-                const slideshow = document.getElementById("slideshow");
-                slideshow.innerHTML = '<button class="close-slideshow" onclick="closeSlideshow()">×</button>';
-                
-                const img = document.createElement("img");
-                img.src = uploadedImages[index].src;
-                img.alt = uploadedImages[index].name;
-                img.style.top = "50%";
-                img.style.left = "50%";
-                img.style.transform = "translate(-50%, -50%)";
-                img.style.height = "70vh";
-                img.style.width = "auto";
-                img.style.maxWidth = "90vw";
-                img.style.animation = "none";
-                img.style.borderRadius = "15px";
-                img.style.boxShadow = "0 10px 30px rgba(0,0,0,0.5)";
-                
-                img.onerror = function() {
-                    console.error(`Không thể tải ảnh: ${uploadedImages[index].src}`);
-                    showNotification("Không thể tải ảnh. Vui lòng kiểm tra đường dẫn!");
-                    closeSlideshow();
-                };
-                
-                slideshow.appendChild(img);
-            }, 100);
-        }
-
         // hiển thị thông báo
         function showNotification(msg) {
             const notification = document.getElementById('notification');
@@ -851,15 +1182,15 @@
             }, 3000);
         }
 
-        // check pass
+        // check mk
         function checkPassword() {
             const input = document.getElementById("passwordInput").value.trim().toLowerCase();
             const errorMsg = document.getElementById("errorMsg");
             
             if (input === PASSWORD) {
                 document.getElementById("passwordScreen").style.display = "none";
-                document.getElementById("mainContent").style.display = "block";
-                createConfetti(50);
+                document.getElementById("selectionScreen").style.display = "flex";
+                createConfetti(30);
                 showNotification("Mật khẩu đúng. 🎉");
                 
                 // chạy kim tuyến 
@@ -882,11 +1213,90 @@
             }
         }
 
-        // bắt đầu hiệu ứng kim tuyến
+        // chọn một mục từ màn hình
+        function selectItem(itemType) {
+            // Xóa timeout cũ nếu có
+            if (selectionTimeout) {
+                clearTimeout(selectionTimeout);
+            }
+            
+            // xóa lớp active khỏi tất cả các mục
+            document.querySelectorAll('.selection-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Thêm lớp active vào mục được chọn
+            selectedItem = itemType;
+            const selectedElement = document.getElementById(itemType + 'Selection');
+            selectedElement.classList.add('active');
+            
+            // Chuyển hướng sau hiệu ứng phóng to
+            selectionTimeout = setTimeout(() => {
+                switch(itemType) {
+                    case 'video':
+                        showVideoScreen();
+                        break;
+                    case 'card':
+                        showCardScreen();
+                        break;
+                    case 'gallery':
+                        showGalleryScreen();
+                        // Cập nhật gallery khi vào trang ảnh
+                        setTimeout(() => {
+                            updateImageGallery();
+                        }, 100);
+                        break;
+                }
+            }, 800);
+        }
+
+        // Hiển thị màn hình video
+        function showVideoScreen() {
+            document.getElementById("selectionScreen").style.display = "none";
+            document.getElementById("videoScreen").style.display = "block";
+            // Cập nhật lại video player khi chuyển đến trang video
+            updateVideoPlayer();
+        }
+
+        // Hiển thị màn hình thiệp
+        function showCardScreen() {
+            document.getElementById("selectionScreen").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+            
+            // Bắt đầu hiệu ứng bóng bay khi vào trang thiệp
+            startBalloonEffect();
+        }
+
+        // Hiển thị màn hình ảnh kỷ niệm
+        function showGalleryScreen() {
+            document.getElementById("selectionScreen").style.display = "none";
+            document.getElementById("galleryScreen").style.display = "block";
+        }
+
+        // Quay lại màn hình chọn lựa
+        function goBackToSelection() {
+            document.getElementById("mainContent").style.display = "none";
+            document.getElementById("videoScreen").style.display = "none";
+            document.getElementById("galleryScreen").style.display = "none";
+            document.getElementById("selectionScreen").style.display = "flex";
+            
+            // Xóa lớp active khỏi các mục
+            document.querySelectorAll('.selection-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Dừng hiệu ứng di chuyển ảnh khi rời khỏi gallery
+            stopImageMovement();
+            
+            // Dừng hiệu ứng bóng bay khi rời khỏi trang thiệp
+            stopBalloonEffect();
+        }
+
+        // Bắt đầu hiệu ứng kim tuyến
         function startEffects() {
             effectsActive = true;
             
-            // tạo kim tuyến 
+            // Tạo kim tuyến 
             glitterInterval = setInterval(() => {
                 if (!effectsActive) return;
                 
@@ -922,11 +1332,10 @@
             }, 100);
         }
         
-        // dừng hiệu ứng kim tuyến
+        // Dừng hiệu ứng kim tuyến
         function stopEffects() {
             effectsActive = false;
             clearInterval(glitterInterval);
-            clearInterval(balloonInterval);
             
             const glitters = document.querySelectorAll('.glitter');
             glitters.forEach(glitter => {
@@ -934,7 +1343,20 @@
                     glitter.parentNode.removeChild(glitter);
                 }
             });
+        }
+
+        // Bắt đầu hiệu ứng bóng bay
+        function startBalloonEffect() {
+            balloonInterval = setInterval(() => {
+                createBalloon();
+            }, 100); // thời gian 
+        }
+
+        // Dừng hiệu ứng bóng bay
+        function stopBalloonEffect() {
+            clearInterval(balloonInterval);
             
+            // Xóa tất cả bóng bay còn lại
             const balloons = document.querySelectorAll('.balloon');
             balloons.forEach(balloon => {
                 if (balloon.parentNode) {
@@ -943,22 +1365,57 @@
             });
         }
 
-        // mở thiệp
+        // Tạo bóng bay
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            
+            // Màu sắc ngẫu nhiên
+            const colors = [
+                '#ff4081', '#4ecdc4', '#ff6b6b', '#ffd166', '#06d6a0', 
+                '#118ab2', '#ef476f', '#ff9e00', '#7209b7', '#3a86ff'
+            ];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            balloon.style.backgroundColor = color;
+            
+            // Vị trí ngẫu nhiên
+            const left = Math.random() * 100;
+            balloon.style.left = left + '%';
+            
+            // Kích thước ngẫu nhiên
+            const size = Math.random() * 20 + 30;
+            balloon.style.width = size + 'px';
+            balloon.style.height = size * 1.25 + 'px';
+            
+            // Thêm bóng bay vào trang thiệp
+            const mainContent = document.getElementById('mainContent');
+            if (mainContent) {
+                mainContent.appendChild(balloon);
+            }
+            
+            // Tự động xóa bóng bay sau khi hiệu ứng kết thúc
+            setTimeout(() => {
+                if (balloon.parentNode) {
+                    balloon.parentNode.removeChild(balloon);
+                }
+            }, 8000);
+        }
+        
+        // Mở thiệp
         function openBook(bookNumber) {
             const book = document.getElementById(`book${bookNumber}`);
-            
             
             if (!book.classList.contains('opened')) {
                 book.classList.add('opened');
                 openedBooks++;
                 
-                // tiệu ứng âm thanh
+                // Hiệu ứng âm thanh
                 playSoundEffect();
                 
-                // tiệu ứng kim tuyến
+                // Hiệu ứng kim tuyến
                 createConfetti(10);
                 
-                // thông báo mở thiệp 
+                // Thông báo mở thiệp 
                 let openMessage = "";
                 switch(bookNumber) {
                     case 1:
@@ -978,20 +1435,22 @@
                 }
                 showNotification(openMessage);
                 
-                // hiệu ứng gõ chữ
+                // Dừng hiệu ứng bóng bay khi mở thiệp
+                stopBalloonEffect();
+                
+                // Hiệu ứng gõ chữ
                 setTimeout(() => {
                     typeMessage(bookMessages[bookNumber-1], bookNumber);
                 }, 1000);
                 
-                // thông báo khi mở hết thiệp
+                // Thông báo khi mở hết thiệp
                 if (openedBooks === 4) {
-                    document.getElementById('imageGallery').style.display = 'block';
                     showNotification(OPEN_MESSAGE_CONFIG.allOpened);
                 }
             }
         }
 
- // hiệu ứng gõ chữ với xuống dòng tự động
+        // Hiệu ứng gõ chữ với xuống dòng tự động
         function typeMessage(text, bookNumber) {
             const messageEl = document.getElementById(`messageContent${bookNumber}`);
             const pen = document.getElementById(`pen${bookNumber}`);
@@ -1077,7 +1536,7 @@
             typeNextChar();
         }
 
-        // cập nhật vị trí bút
+        // Cập nhật vị trí bút
         function updatePenPosition(lineEl, charIndex, bookNumber) {
             const pen = document.getElementById(`pen${bookNumber}`);
             const page2 = document.getElementById(`page2-book${bookNumber}`);
@@ -1106,132 +1565,13 @@
             document.body.removeChild(tempSpan);
         }
 
-        // hiển thị slideshow ảnh bay 
-        function showSlideshow() {
-            document.querySelector(".books-container").style.display = "none";
-            document.getElementById("nextButton").style.display = "none";
-            document.getElementById("imageGallery").style.display = "none";
-
-            stopEffects();
-
-            const slideshow = document.getElementById("slideshow");
-            slideshow.style.display = "block";
-            slideshow.innerHTML = '<button class="close-slideshow" onclick="closeSlideshow()">×</button>';
-
-            // reset vị trí ảnh cuối cùng
-            lastImagePosition = 0;
-
-            // tạo ảnh bay liên tục
-            createContinuousFlyingImages();
-            
-            playSlideshowSound();
+        // Hiển thị thông báo hoàn thành
+        function showCompletionMessage() {
+            createConfetti(100);
+            showNotification("Chúc mừng sinh nhật! 🎂🎉");
         }
-        
-        // tạo ảnh bay liên tục nối tiếp nhau
-        function createContinuousFlyingImages() {
-            const slideshow = document.getElementById("slideshow");
-            const windowHeight = window.innerHeight;
-            
-            // xóa interval cũ nếu có
-            if (slideshowInterval) {
-                clearInterval(slideshowInterval);
-            }
-            
-            // khoảng cách đều đặn
-            slideshowInterval = setInterval(() => {
-                if (activeImages < 25) { // số ảnh trên màn
-                    createImageSequence(3); // số ảnh mỗi lầ tạo
-                }
-            }, 600); // tg tạo ảnh
-        }
-        
-        // tạo chuỗi ảnh nối tiếp nhau
-        function createImageSequence(count) {
-            const slideshow = document.getElementById("slideshow");
-            const windowHeight = window.innerHeight;
-            
-            for (let i = 0; i < count; i++) {
-                const img = document.createElement("img");
-                
-                if (uploadedImages.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * uploadedImages.length);
-                    img.src = uploadedImages[randomIndex].src;
-                    img.alt = uploadedImages[randomIndex].name;
-                } else {
-                    const randomId = Math.floor(Math.random() * 1000);
-                    img.src = `https://picsum.photos/200/180?random=${randomId}`;
-                    img.alt = `Ảnh kỷ niệm ${randomId}`;
-                }
 
-                // tính toán vị trí ảnh 
-                let topPosition;
-                if (lastImagePosition === 0) {
-                    topPosition = Math.random() * (windowHeight - 200);
-                } else {
-                    const minGap = 50; // khoảng cách tối thiểu giữa các ảnh
-                    const maxGap = 150; // khoảng cách tối đa giữa các ảnh
-                    const gap = minGap + Math.random() * (maxGap - minGap);
-                    
-                    // căn chỉnh ảnh trong khung hình
-                    topPosition = lastImagePosition + gap;
-                    if (topPosition > windowHeight - 200) {
-                        topPosition = Math.random() * (windowHeight - 200); 
-                    }
-                }
-                
-                lastImagePosition = topPosition;
-                img.style.top = Math.max(0, Math.min(windowHeight - 200, topPosition)) + "px";
-
-                // sử dụng animation ngẫu nhiên
-                const animations = ['flyLeft', 'flyLeft2', 'flyLeft3', 'flyLeft4', 'flyLeft5'];
-                const randomAnim = animations[Math.floor(Math.random() * animations.length)];
-                const duration = 6 + Math.random() * 4; // thời gian di chuyển
-                
-                img.style.animation = `${randomAnim} ${duration}s linear forwards`;
-                
-                slideshow.appendChild(img);
-                activeImages++;
-                
-                // xóa ảnh sau khi hoàn thành animation
-                setTimeout(() => {
-                    if (img.parentNode) {
-                        img.parentNode.removeChild(img);
-                        activeImages--;
-                    }
-                }, duration * 1000);
-                
-                // xử lý lỗi tải ảnh
-                img.onerror = function() {
-                    console.error("Không thể tải ảnh:", this.src);
-                    if (this.parentNode) {
-                        this.parentNode.removeChild(this);
-                        activeImages--;
-                    }
-                };
-            }
-        }
-        
-        // đóng xem ảnh
-        function closeSlideshow() {
-            clearInterval(slideshowInterval);
-            
-            const slideshow = document.getElementById("slideshow");
-            slideshow.innerHTML = '<button class="close-slideshow" onclick="closeSlideshow()">×</button>';
-            slideshow.style.display = "none";
-            
-            activeImages = 0;
-            lastImagePosition = 0;
-            
-            document.querySelector(".books-container").style.display = "flex";
-            document.getElementById("nextButton").style.display = "inline-block";
-            if (uploadedImages.length > 0) {
-                document.getElementById('imageGallery').style.display = 'block';
-            }
-            
-            startEffects();
-        }
-        
-        // tạo hiệu ứng kim tuyến
+        // Tạo hiệu ứng kim tuyến
         function createConfetti(count) {
             const colors = ['#ff4081', '#4ecdc4', '#ff6b6b', '#ffd166', '#06d6a0'];
             
@@ -1263,12 +1603,8 @@
         function playSoundEffect() {
             console.log("🎵 Phát âm thanh hiệu ứng");
         }
-        
-        function playSlideshowSound() {
-            console.log("🎵 Phát nhạc slideshow");
-        }
 
-        // điều chỉnh âm lượng bên ngoài
+        // Điều chỉnh âm lượng bên ngoài
         function setVolume(volume) {
             if (volume >= 0 && volume <= 1) {
                 birthdayAudio.volume = volume;
@@ -1276,7 +1612,7 @@
             }
         }
 
-        // tắt/bật nhạc bên ngoài
+        // Tắt/bật nhạc bên ngoài
         function toggleMusic() {
             if (isPlaying) {
                 birthdayAudio.pause();
