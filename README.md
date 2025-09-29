@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width: 2000px;
+            max-width: 1200px;
             width: 100%;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
@@ -38,7 +38,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 1200px;
+            min-height: 500px;
         }
 
         .password-screen h1 {
@@ -415,13 +415,13 @@
             text-align: center;
             overflow: hidden;
             position: relative;
-            min-height: 600px;
+            min-height: 1600px;
         }
 
         .gallery-container {
             position: relative;
             width: 100%;
-            height: 500px;
+            height: 1500px;
             overflow: hidden;
             margin-bottom: 20px;
             border-radius: 10px;
