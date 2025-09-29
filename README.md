@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
+c
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMSN</title>
     <style>
@@ -17,12 +18,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px;
+            padding: 20px;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 20000px;
+            max-width: 1200px;
             width: 100%;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
@@ -598,7 +599,7 @@
             box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.7);
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 768px) {
             .container {
                 border-radius: 10px;
             }
