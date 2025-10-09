@@ -1,6 +1,6 @@
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMSN</title>
     <style>
@@ -415,13 +415,13 @@
             text-align: center;
             overflow: hidden;
             position: relative;
-            min-height: 1600px;
+            min-height: 600px;
         }
 
         .gallery-container {
             position: relative;
             width: 100%;
-            height: 1500px;
+            height: 500px;
             overflow: hidden;
             margin-bottom: 20px;
             border-radius: 10px;
@@ -781,7 +781,6 @@
 
             <div class="controls">
                 <button class="btn back-btn" onclick="goBackToSelection()">Quay lại</button>
-                <button class="btn next-btn" id="nextButton" onclick="showCompletionMessage()">Hoàn thành 🎊</button>
             </div>
         </div>
 
@@ -829,26 +828,32 @@
 
     <script>
         // PASS
-        const PASSWORD = "1";
+        const PASSWORD = "20102008";
         
         // thông báo khi mở thiệp 
         const OPEN_MESSAGE_CONFIG = {
-            book1: "ANH",
-            book2: "DOAN", 
-            book3: "QUANG",
-            book4: "ANH1628",
+            book1: "Bạn đã mở thiệp của Nam",
+            book2: "Bạn đã mở thiệp của Quang ANh", 
+            book3: "Bạn đã mở thiệp của Phượng",
+            book4: "Bạn đã mở thiệp của Khánh",
             allOpened: "Đã mở tất cả thiệp! 🎉"
         };
         
         // lời chúc
         const bookMessages = [
-            "lời chúc 1",
+             `Tôi chúc bạn Yến tuổi mưới ngày càng xinh đẹp ít cắn bậy, bớt độc hơn`,
             
-            "lời chúc 2",
+             `Chúc bạn bức sang tuổi mới tràn đầy niềm vui hạnh phúc, ngày càng xinh đẹ học giỏi, gặp nhiều may mắn, đạt được nhiều thành công trong cuộc sống, vào được ngôi trường mình mong muốn, đỗ nguyện vọng 1, bớt cắt bậy lại 🎂🎉 !! `,
             
-            "lời chúc 3",
+            ` HAPPY BIRTHDAY YẾN SẬY🎂🎂
+                      Đầu tiên là nhân dịp mừng thọ tuổi 20 trừ 3 t chúc m luôn vui vẻ , hạnh phúc , ngày càng xinh gái hơn , học giỏi hơn, bớt sợ thầy tuyến lại, bớ sợ sấm- , hay ăn chóng lớn gầy như quỷ í , gặp nhiều may mắn , có thật nhiều niềm vui trong cuộc sống , bớt ovtk , luôn suy nghĩ tích cực , đạt được thành công trong cuộc sống , vào trường mà m muốn chọn nghành m thích và đam mê , đỗ nguyện vọng 1 ( ước gì t vs m chung trường đại học thì vuii). 
+                      Tiếp theo là bớt xàm bớt điên lại t nói z th chứ cũng chính vì tính cách hài hước và hoạt bát của m đã giúp cho t từ 1 ng hay cáu gắt trở nên vui vẻ và tích cực hơn . T vs ngồi chung bàn tính đến nay cũng là năm thứ 3 rồi chứng kiến mọi chuyện vui, chuyện buồn, chứng kiến từng khoảnh khắc xấu nhất của nhau, thấy những lần yếu đuối và rơi lệ vì vậy t luôn luôn trân trọng tình bạn này . Tuổi 17 là khoảng thời gian để lưu giữ lại những kỉ niệm quý giá của cta và cũng là hành trình trưởng thành của mỗi đứa tìm cho mk con đường phù hợp cho sau này bớt khổ và cũng muốn bố mẹ mk tự hào về mình . T chẳng còn biết là sinh nhật tuổi 18 của bọn mình còn có thể đông đủ như bây giờ không nhưng mà t cũng rất vui vì được gặp ae trong nhóm lợn và đặc biệt là m - (ngoại lệ) of Sam . T không giỏi văn , không viết được những lời hoa mĩ nhưng đây là tất cả những gì mà t muốn gửi tới m vào dịp sinh tuổi 17 của m 
+                      Cuối cùng là chỉ mong m luôn vui vẻ có một cuộc sống an nhàn sau này làm đại gia thì nuôi t và mãi mãi làm bạn nhé🎂🎂🎂
+                háp pi háp pi háp pì 🎂🎂🎂
+                        
+                   Hết rồi😏`,
             
-            "lời chúc 4"
+             `Chào sậy , gắn bó với nhau đã được một thời gian ko dài nhưng ko ngắn , đủ để ae  thân . Tuổi mới , tuổi 17 + thật rực rở , mong tuổi 17 sẽ là 1 tuổi đáng để m sống để nhớ  , để giữ và lưu lại những kỉ niệm rực rỡ của năm tháng thanh xuân , tuổi 17 đẹo nhất đời người nhé . M làm đc , m luôn làm được hơn những gì m nghĩ , m đứng dậy , học đi , bước tiếp và dừng lại nếu m   mệt nhưng ko bỏ cuộc  . Chúc m trắng hơn bạch tuyết , xinh đẹp trong bộ áo dài của tuổi 17 , cười nhiều như ngày hôm nay nhé 🏅`,
         ];
 
         // tên thiệp
@@ -863,13 +868,16 @@
             '11.jpg', '12.jpg', '13.jpg', '14.jpg', "15.jpg", "16.jpg", "17.jpg", '18.jpg', '19.jpg', '20.jpg',
             '21.jpg', "22.jpg", "23.jpg", "24.jpg", '25.jpg', '26.jpg', '27.jpg', '28.jpg', "29.jpg", "30.jpg",
             "31.jpg", '32.jpg', '33.jpg', '34.jpg', '35.jpg', "36.jpg", "37.jpg", "38.jpg", '39.jpg', '40.jpg', 
+            '41.jpg', '42.jpg', '43.jpg', '44.jpg', '45.jpg', '46.jpg', '47.jpg', '48.jpg', '49.jpg', '50.jpg',
+            '51.jpg', '52.jpg', '53.jpg', '54.jpg', '55.jpg', '56.jpg', '57.jpg', '58.jpg', '595jpg', 
         ];
 
         //video
         const localVideos = [
-            "video1.mp4",
-            "video2.mp4",
-            "video3.mp4"
+    
+            "vd1.mp4",
+
+            
         ]; 
 
         // file nhạc
